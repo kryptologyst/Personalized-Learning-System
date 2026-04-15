@@ -1,0 +1,54 @@
+# Data generation and processing configuration
+data:
+  # Synthetic data generation parameters
+  generation:
+    n_samples: 1000
+    random_seed: 42
+    
+    # Student profile features
+    features:
+      study_time:
+        distribution: "normal"
+        params:
+          mean: 5.0
+          std: 1.5
+        description: "Hours per week spent studying"
+        
+      learning_style_score:
+        distribution: "uniform"
+        params:
+          min: 0.0
+          max: 1.0
+        description: "Learning style preference (0=visual, 1=auditory/kinesthetic)"
+        
+      previous_performance:
+        distribution: "normal"
+        params:
+          mean: 80.0
+          std: 10.0
+        description: "Previous academic performance score (0-100)"
+        
+      engagement_score:
+        distribution: "uniform"
+        params:
+          min: 0.0
+          max: 1.0
+        description: "Student engagement level (0-1)"
+        
+      resource_preference:
+        distribution: "uniform_int"
+        params:
+          min: 0
+          max: 2
+        description: "Preferred resource type (0=video, 1=quiz, 2=reading)"
+
+  # Data splitting
+  splits:
+    test_size: 0.2
+    validation_size: 0.2
+    random_state: 42
+    
+  # Feature engineering
+  feature_engineering:
+    normalize: true
+    scale_features: true
